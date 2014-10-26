@@ -8,7 +8,7 @@ files.forEach(function (file) {
 	var nameparts = file.split('.');
 
 	if (nameparts[1] === 'json') {
-		data[nameparts[0]] = require('./' + file);
+		data[nameparts[0]] = require('./' + file).stats;
 	}
 })
 

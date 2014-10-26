@@ -1,0 +1,57 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">Dashboard</h1>
+
+  <div class="row placeholders">
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <span id="chart1" class="ct-chart img-responsive"></span>
+      <h4>Label</h4>
+      <span class="text-muted">donut</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <span id="chart2" class="ct-chart img-responsive"></span>
+      <h4>Label</h4>
+      <span class="text-muted">donut</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <span id="chart3" class="ct-chart img-responsive"></span>
+      <h4>Label</h4>
+      <span class="text-muted">donut</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <span id="chart4" class="ct-chart img-responsive"></span>
+      <h4>Label</h4>
+      <span class="text-muted">donut</span>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // Drawing a donut chart
+  new Chartist.Pie('#chart1', {
+    series: [10, 2, 4, 3]
+  }, {
+    donut: true
+  });
+
+  // Drawing a donut chart
+  new Chartist.Pie('#chart2', {
+    series: [10, 2, 4, 3]
+  }, {
+    donut: true
+  });
+
+  // Drawing a donut chart
+  new Chartist.Pie('#chart3', {
+    series: [10, 2, 4, 3]
+  }, {
+    donut: true
+  });
+
+  // Drawing a donut chart
+  new Chartist.Pie('#chart4', {
+    series: [10, 2, 4, 3]
+  }, {
+    donut: true
+  });
+
+</script>
