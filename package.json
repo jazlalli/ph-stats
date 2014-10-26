@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jazlalli/ph-stats",
   "dependencies": {
     "body-parser": "^1.9.1",
+    "bower": "^1.3.12",
     "cookie-parser": "^1.3.3",
     "express": "^4.10.0",
     "express-handlebars": "^1.1.0"
