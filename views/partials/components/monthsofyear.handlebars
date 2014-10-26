@@ -1,5 +1,5 @@
 <h3>Avg Vote Count / Month</h3>
-<span id="chart2" class="ct-chart img-responsive"></span>
+<span id="monthsofyear" class="ct-chart img-responsive"></span>
 
 <script type="text/javascript">
   getChartData('month', function (data) {
@@ -9,7 +9,7 @@
       series.push(Math.round(item.avg));
     });
 
-    new Chartist.Line('#chart2', {
+    new Chartist.Line('#monthsofyear', {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
       series: [series]
     }, {

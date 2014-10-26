@@ -22,14 +22,14 @@ COPY (SELECT to_json(array_agg(r)) FROM (
 
 -- ranked distribution of posts by day of the year
 COPY (SELECT to_json(array_agg(r)) FROM (
-	SELECT AVG(votes_count), dayofyear
+	SELECT AVG(votes_count), dayofmonth
 	FROM (
-		SELECT votes_count, EXTRACT(DOY FROM created_at) as dayofyear
+		SELECT votes_count, EXTRACT(DAY FROM created_at) as dayofmonth
 		FROM posts
 	) as a
-	GROUP BY dayofyear
-	ORDER BY dayofyear ASC, AVG(votes_count) DESC
-) as r) TO '/Users/jazlalli/ph-hackathon/ph-stats/data/dayofyear.json';
+	GROUP BY dayofmonth
+	ORDER BY dayofmonth ASC, AVG(votes_count) DESC
+) as r) TO '/Users/jazlalli/ph-hackathon/ph-stats/data/daysofmonth.json';
 
 -- users who are key/leading indicators of a high score
 COPY (SELECT to_json(array_agg(r)) FROM (

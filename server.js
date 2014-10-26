@@ -16,8 +16,8 @@ app.get('/api/data/daysofweek', function (req, res) {
 	res.json({data: data.daysofweek});
 });
 
-app.get('/api/data/daysofyear', function (req, res) {
-	res.json({data: data.daysofyear});
+app.get('/api/data/daysofmonth', function (req, res) {
+	res.json({data: data.daysofmonth});
 });
 
 app.get('/api/data/month', function (req, res) {

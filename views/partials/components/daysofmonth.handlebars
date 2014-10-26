@@ -1,0 +1,29 @@
+<h3>Avg Vote Count / Date</h3>
+<span id="daysofmonth" class="ct-chart img-responsive"></span>
+
+
+<script type="text/javascript">
+  getChartData('daysofmonth', function (data) {
+    var series = [], labels = [];
+
+    data.data.forEach(function (item, idx) {
+      labels.push(item.dayofmonth);
+      series.push(Math.round(item.avg));
+    });
+
+    new Chartist.Line('#daysofmonth', {
+      labels: labels,
+      series: [series]
+    }, {
+      height: 300,
+      axisX: {
+        labelOffset: {
+          x: '-20px',
+          y: '30px'
+        }
+      }
+    });
+  });
+
+  console.log('days of month chart');
+</script>
