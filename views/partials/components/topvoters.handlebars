@@ -1,5 +1,5 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h2 class="sub-header">Top Voters</h2>
+  <h2 class="sub-header">Top 100 Voters</h2>
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
@@ -11,8 +11,8 @@
       </thead>
       <tbody>
       	{{#each data.topvoters }}
-					<tr>
-						<td>{{@index}}</td>
+          <tr>
+						<td><img class="img-circle" width="40" src="{{this.image}}" alt="{{this.username}}" /></td>
 						<td>{{this.user_username}}</td>
 						<td>{{this.count}}</td>
 					</tr>

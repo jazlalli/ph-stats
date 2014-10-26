@@ -1,0 +1,26 @@
+<h3>Avg Vote Count / Month</h3>
+<span id="chart2" class="ct-chart img-responsive"></span>
+
+<script type="text/javascript">
+  getChartData('month', function (data) {
+    var series = [];
+
+    data.data.forEach(function (item) {
+      series.push(Math.round(item.avg));
+    });
+
+    new Chartist.Line('#chart2', {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+      series: [series]
+    }, {
+      axisX: {
+        labelOffset: {
+          x: '-20px',
+          y: '30px'
+        }
+      }
+    });
+  });
+
+  console.log('months of year chart');
+</script>

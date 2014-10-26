@@ -11,6 +11,25 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+	<script type="text/javascript">
+
+		function getChartData(path, callback) {
+      var request = new XMLHttpRequest();
+
+      request.open('GET', '/api/data/' + path, true);
+      request.onload = function() {
+        if (request.status >= 200 && request.status < 400){
+          data = JSON.parse(request.responseText);
+
+          callback(data);
+        }
+      };
+
+      request.send();
+    }
+
+	</script>
 </head>
 <body>
 
@@ -28,9 +47,8 @@
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
           <li class="active"><a href="#">Overview</a></li>
-          <li><a href="#">Reports</a></li>
-          <li><a href="#">Analytics</a></li>
-          <li><a href="#">Export</a></li>
+          <li><a href="#">Something</a></li>
+          <li><a href="#">Something else</a></li>
         </ul>
       </div>
 

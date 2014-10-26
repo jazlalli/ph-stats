@@ -12,7 +12,7 @@
       <tbody>
       	{{#each data.topmakers }}
 					<tr>
-						<td>{{@index}}</td>
+            <td><img class="img-circle" width="40" src="{{this.image}}" alt="{{this.username}}" /></td>
 						<td>{{this.username}}</td>
 						<td>{{this.maker_of_count}}</td>
 					</tr>

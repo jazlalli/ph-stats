@@ -9,6 +9,17 @@ COPY (SELECT to_json(array_agg(r)) FROM (
 	ORDER BY dayofweek ASC, AVG(votes_count) DESC
 ) as r) TO '/Users/jazlalli/ph-hackathon/ph-stats/data/dayofweek.json';
 
+-- ranked distribution of posts by month
+COPY (SELECT to_json(array_agg(r)) FROM (
+	SELECT AVG(votes_count), month
+	FROM (
+		SELECT votes_count, EXTRACT(MONTH FROM created_at) as month
+		FROM posts
+	) as a
+	GROUP BY month
+	ORDER BY month ASC, AVG(votes_count) DESC
+) as r) TO '/Users/jazlalli/ph-hackathon/ph-stats/data/month.json';
+
 -- ranked distribution of posts by day of the year
 COPY (SELECT to_json(array_agg(r)) FROM (
 	SELECT AVG(votes_count), dayofyear
@@ -20,28 +31,18 @@ COPY (SELECT to_json(array_agg(r)) FROM (
 	ORDER BY dayofyear ASC, AVG(votes_count) DESC
 ) as r) TO '/Users/jazlalli/ph-hackathon/ph-stats/data/dayofyear.json';
 
--- ranked distribution of posts by hour of the day
-COPY (SELECT to_json(array_agg(r)) FROM (
-	SELECT AVG(votes_count), hourofday
-	FROM (
-		SELECT votes_count, EXTRACT(HOUR FROM created_at) as hourofday
-		FROM posts
-	) as a
-	GROUP BY hourofday
-	ORDER BY hourofday ASC, AVG(votes_count) DESC
-) as r) TO '/Users/jazlalli/ph-hackathon/ph-stats/data/hourofday.json';
-
 -- users who are key/leading indicators of a high score
 COPY (SELECT to_json(array_agg(r)) FROM (
-	SELECT user_id, user_username, COUNT(id)
+	SELECT user_id, users.image, user_username, COUNT(votes.id)
 	FROM votes
-	GROUP BY user_id, user_username
-	ORDER BY COUNT(id) DESC
+		INNER JOIN users ON votes.user_id = users.id
+	GROUP BY user_id, user_username, users.image
+	ORDER BY COUNT(votes.id) DESC
 	LIMIT 100
 ) as r) TO '/Users/jazlalli/ph-hackathon/ph-stats/data/topvoters.json';
 
 COPY (SELECT to_json(array_agg(r)) FROM (
-	SELECT id, username, maker_of_count
+	SELECT username, image, maker_of_count
 	FROM users
 	WHERE maker_of_count>2
 	ORDER BY maker_of_count DESC

@@ -1,27 +1,27 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h2 class="sub-header">Weekly Data</h2>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Avg No. of Votes</th>
-          <th>Day of the week</th>
-        </tr>
-      </thead>
-      <tbody>
-      	{{#each data.dayofweek }}
-					<tr>
-						<td>{{@index}}</td>
-						<td>{{this.avg}}</td>
-						<td>{{this.dayofweek}}</td>
-					</tr>
-				{{/each}}
-      </tbody>
-    </table>
-  </div>
-</div>
+<h3>Avg Vote Count / Day of Week</h3>
+<span id="chart1" class="ct-chart img-responsive"></span>
+
 
 <script type="text/javascript">
-	console.log('days of week');
+  getChartData('daysofweek', function (data) {
+    var series = [];
+
+    data.data.forEach(function (item) {
+      series.push(Math.round(item.avg));
+    });
+
+    new Chartist.Line('#chart1', {
+      labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      series: [series]
+    }, {
+      axisX: {
+        labelOffset: {
+          x: '-20px',
+          y: '30px'
+        }
+      }
+    });
+  });
+
+  console.log('days of week chart');
 </script>

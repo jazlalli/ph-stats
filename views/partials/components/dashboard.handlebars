@@ -2,56 +2,17 @@
   <h1 class="page-header">Dashboard</h1>
 
   <div class="row placeholders">
-    <div class="col-xs-6 col-sm-3 placeholder">
-      <span id="chart1" class="ct-chart img-responsive"></span>
-      <h4>Label</h4>
-      <span class="text-muted">donut</span>
+    <div class="col-xs-12 col-sm-6 placeholder">
+      {{> components/daysofweek }}
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-      <span id="chart2" class="ct-chart img-responsive"></span>
-      <h4>Label</h4>
-      <span class="text-muted">donut</span>
+    <div class="col-xs-12 col-sm-6 placeholder">
+      {{> components/monthsofyear }}
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-      <span id="chart3" class="ct-chart img-responsive"></span>
-      <h4>Label</h4>
-      <span class="text-muted">donut</span>
-    </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-      <span id="chart4" class="ct-chart img-responsive"></span>
-      <h4>Label</h4>
-      <span class="text-muted">donut</span>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 placeholder">
+      {{> components/daysofyear }}
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  // Drawing a donut chart
-  new Chartist.Pie('#chart1', {
-    series: [10, 2, 4, 3]
-  }, {
-    donut: true
-  });
-
-  // Drawing a donut chart
-  new Chartist.Pie('#chart2', {
-    series: [10, 2, 4, 3]
-  }, {
-    donut: true
-  });
-
-  // Drawing a donut chart
-  new Chartist.Pie('#chart3', {
-    series: [10, 2, 4, 3]
-  }, {
-    donut: true
-  });
-
-  // Drawing a donut chart
-  new Chartist.Pie('#chart4', {
-    series: [10, 2, 4, 3]
-  }, {
-    donut: true
-  });
-
-</script>

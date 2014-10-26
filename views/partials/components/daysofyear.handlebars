@@ -1,27 +1,28 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h2 class="sub-header">Annual Data</h2>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Avg No. of Votes</th>
-          <th>Day of the Year</th>
-        </tr>
-      </thead>
-      <tbody>
-      	{{#each data.dayofyear }}
-					<tr>
-						<td>{{@index}}</td>
-						<td>{{this.avg}}</td>
-						<td>{{this.dayofyear}}</td>
-					</tr>
-				{{/each}}
-      </tbody>
-    </table>
-  </div>
-</div>
+<h3>Avg Vote Count / Day of the Year</h3>
+<span id="chart3" class="ct-chart img-responsive"></span>
 
 <script type="text/javascript">
-	console.log('days of year');
+  getChartData('daysofyear', function (data) {
+    var series = [];
+
+    data.data.forEach(function (item) {
+      series.push(Math.round(item.avg));
+    });
+
+    new Chartist.Line('#chart3', {
+      labels: [],
+      series: [series]
+    }, {
+      height: 300,
+      showPoint: false,
+      axisX: {
+        labelOffset: {
+          x: '-20px',
+          y: '30px'
+        }
+      }
+    });
+  });
+
+  console.log('days of year chart');
 </script>
