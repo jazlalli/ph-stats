@@ -1,3 +1,35 @@
 <h1>Insights</h1>
 
-<p>Some stats: {{ stats }}</p>
+<div>
+	<h3>Avg no. of votes by hour of day</h3>
+
+	{{#each data.hourofday.stats }}
+		<p>{{this.hourofday}}: {{this.avg}}</p>
+	{{/each}}
+</div>
+
+<div>
+	<h3>Avg no. of votes by day of the week</h3>
+
+	{{#each data.dayofweek.stats }}
+		<p>{{this.dayofweek}}: {{this.avg}}</p>
+	{{/each}}
+</div>
+
+<div>
+	<h3>Avg no. of votes by day of the year</h3>
+
+	{{#each data.dayofyear.stats }}
+		<p>{{this.dayofyear}}: {{this.avg}}</p>
+	{{/each}}
+</div>
+
+<div>
+	<h3>Top users</h3>
+
+	<ol>
+		{{#each data.topusers.stats }}
+			<li>{{this.user_username}}: {{this.count}}</li>
+		{{/each}}
+	</ol>
+<p>Some stats: {{ data.topusers }}</p>
